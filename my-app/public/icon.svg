@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#161622" />
+      <stop offset="100%" stop-color="#07070b" />
+    </linearGradient>
+    <linearGradient id="fireGrad" x1="0%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#ff3b00" />
+      <stop offset="50%" stop-color="#ff6a00" />
+      <stop offset="100%" stop-color="#ffb020" />
+    </linearGradient>
+    <linearGradient id="innerFire" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#ffb020" />
+      <stop offset="100%" stop-color="#ffffff" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Rounded Tile -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" stroke="#23232f" stroke-width="12" />
+
+  <!-- Outer Glow Flame -->
+  <path d="M256 80 C290 160 380 220 380 320 C380 400 324 448 256 448 C188 448 132 400 132 320 C132 230 200 180 230 110 C240 160 270 190 280 220 C280 180 270 130 256 80 Z" 
+        fill="url(#fireGrad)" filter="url(#glow)" opacity="0.95" />
+
+  <!-- Inner Hot Core Flame -->
+  <path d="M256 220 C276 260 320 295 320 350 C320 395 292 420 256 420 C220 420 192 395 192 350 C192 300 230 270 244 235 C248 260 264 275 268 290 C268 270 262 245 256 220 Z" 
+        fill="url(#innerFire)" opacity="0.9" />
+
+  <!-- Crosshair Accent Reticle -->
+  <circle cx="256" cy="340" r="32" fill="none" stroke="#07070b" stroke-width="6" opacity="0.6" />
+  <line x1="256" y1="296" x2="256" y2="384" stroke="#07070b" stroke-width="5" opacity="0.6" />
+  <line x1="212" y1="340" x2="300" y2="340" stroke="#07070b" stroke-width="5" opacity="0.6" />
+</svg>

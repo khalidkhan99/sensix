@@ -1,0 +1,17 @@
+{
+  "name": "SensiX — Free Fire Sensitivity Lab",
+  "short_name": "SensiX",
+  "description": "Custom Free Fire sensitivity generator, presets, and tactical guides",
+  "start_url": "/generator",
+  "display": "standalone",
+  "background_color": "#07070b",
+  "theme_color": "#ff6a00",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

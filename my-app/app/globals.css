@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #07070b;
+  --panel: #0f0f18;
+  --panel-elevated: #161622;
+  --edge: #23232f;
+  --fire: #ff6a00;
+  --fire-soft: #ff8a3d;
+  --fire-amber: #ffb020;
+  --background: #07070b;
+  --foreground: #f4f4f7;
+}
+
+@theme {
+  --color-ink: #07070b;
+  --color-panel: #0f0f18;
+  --color-panel-elevated: #161622;
+  --color-edge: #23232f;
+  --color-fire: #ff6a00;
+  --color-fire-soft: #ff8a3d;
+  --color-fire-amber: #ffb020;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+body {
+  background-color: var(--ink);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Background radial glows and 44px grid overlay */
+.bg-gaming-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.glow-orange-top {
+  position: fixed;
+  top: -160px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 720px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(255, 106, 0, 0.18) 0%, rgba(255, 176, 32, 0.06) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-orange-bottom {
+  position: fixed;
+  bottom: -180px;
+  right: -80px;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(255, 106, 0, 0.12) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Glassmorphism Card Styling */
+.glass-card {
+  background-color: rgba(15, 15, 24, 0.76);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+.glass-card-elevated {
+  background-color: rgba(22, 22, 34, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 106, 0, 0.28);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 16px 40px rgba(0, 0, 0, 0.55), 0 0 24px rgba(255, 106, 0, 0.14);
+}
+
+/* Shimmer Border Effect */
+.shimmer-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    transparent 100%
+  );
+  animation: shimmer 6s infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  20% { left: 100%; }
+  100% { left: 100%; }
+}
+
+/* Gradient Text */
+.gradient-fire-text {
+  background: linear-gradient(135deg, #ff6a00 0%, #ffb020 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Button & Interactive styles */
+.btn-fire {
+  background: linear-gradient(135deg, #ff6a00 0%, #ffb020 100%);
+  color: #07070b;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(255, 106, 0, 0.35);
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-fire:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255, 106, 0, 0.48);
+}
+
+.btn-fire:active {
+  transform: scale(0.97);
+}
+
+.btn-ghost {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f4f4f7;
+  transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-ghost:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.btn-ghost:active {
+  transform: scale(0.97);
+}
+
+/* Animations */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+/* Custom Scrollbar for sleek gaming feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #07070b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #23232f;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff6a00;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float, .btn-fire, .btn-ghost, .shimmer-card::before {
+    animation: none !important;
+    transition: none !important;
+  }
+}
